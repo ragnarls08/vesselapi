@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface IPositionService {
-    VesselPositionResultModel AddVesselPosition(VesselPositionInputModel model);
-    AllPositionsResultModel GetAllVesselPositions();
+    VesselPositionResultModel addVesselPosition(VesselPositionInputModel model);
+    AllPositionsResultModel getAllVesselPositions();
 }

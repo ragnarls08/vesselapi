@@ -10,14 +10,13 @@ public class PositionInputModel
     private LocalDateTime positionDate;
 
     @JsonProperty("latitude")
-    private int latDegree;
+    private double latDegree;
 
     @JsonProperty("longitude")
-    private int longDegree;
+    private double longDegree;
 
     @JsonProperty("speed")
-    private int knots;
-
+    private double knots;
 
     public LocalDateTime getPositionDate() {
         return positionDate;
@@ -27,27 +26,27 @@ public class PositionInputModel
         this.positionDate = positionDate;
     }
 
-    public int getLatDegree() {
+    public double getLatDegree() {
         return latDegree;
     }
 
-    public void setLatDegree(int latDegree) {
+    public void setLatDegree(double latDegree) {
         this.latDegree = latDegree;
     }
 
-    public int getLongDegree() {
+    public double getLongDegree() {
         return longDegree;
     }
 
-    public void setLongDegree(int longDegree) {
+    public void setLongDegree(double longDegree) {
         this.longDegree = longDegree;
     }
 
-    public int getKnots() {
+    public double getKnots() {
         return knots;
     }
 
-    public void setKnots(int knots) {
+    public void setKnots(double knots) {
         this.knots = knots;
     }
 }

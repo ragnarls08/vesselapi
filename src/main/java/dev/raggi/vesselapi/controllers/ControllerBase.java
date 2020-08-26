@@ -6,7 +6,7 @@ import org.springframework.web.client.HttpClientErrorException;
 
 public class ControllerBase {
 
-    public ResponseEntity ExceptionToResultModel(Exception e) {
+    public ResponseEntity exceptionToResultModel(Exception e) {
         if(e instanceof HttpClientErrorException) {
             HttpClientErrorException ex = (HttpClientErrorException)e;
 
@@ -15,7 +15,7 @@ public class ControllerBase {
         return new ResponseEntity("", null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    public static ResponseEntity NullRequest() {
+    public static ResponseEntity nullRequest() {
         return new ResponseEntity("Input cannot be null", null, HttpStatus.BAD_REQUEST);
     }
 }

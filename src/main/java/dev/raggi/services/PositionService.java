@@ -31,7 +31,7 @@ public class PositionService implements  IPositionService {
     public PositionService() { }
 
     @Override
-    public VesselPositionResultModel AddVesselPosition(VesselPositionInputModel model) {
+    public VesselPositionResultModel addVesselPosition(VesselPositionInputModel model) {
 
         if(IsNullOrEmpty(model.getVessel().getName())) {
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, "Vessel name is null or empty");
@@ -88,7 +88,7 @@ public class PositionService implements  IPositionService {
     }
 
     @Override
-    public AllPositionsResultModel GetAllVesselPositions() {
+    public AllPositionsResultModel getAllVesselPositions() {
         List<Vessel> vessels = _vesselRepository.findAll();
         AllPositionsResultModel result = new AllPositionsResultModel();
 
@@ -98,7 +98,7 @@ public class PositionService implements  IPositionService {
             vp.setName(v.getName());
             vp.setCountry(v.getCountry());
 
-            vp.setPositions(PositionListToPositionResultModelList(v.getPositions()));
+            vp.setPositions(positionListToPositionResultModelList(v.getPositions()));
 
             result.getVessels().add(vp);
         }
@@ -106,7 +106,7 @@ public class PositionService implements  IPositionService {
         return result;
     }
 
-    private List<PositionResultModel> PositionListToPositionResultModelList(List<Position> ps) {
+    private List<PositionResultModel> positionListToPositionResultModelList(List<Position> ps) {
         List<PositionResultModel> result = new ArrayList<>();
 
         for(Position p : ps) {

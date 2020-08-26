@@ -24,38 +24,38 @@ public class PositionController extends ControllerBase {
     }
 
     @GetMapping("/getAllPositionsByName")
-    public ResponseEntity<AllPositionsResultModel> GetAllPositionsByName() {
+    public ResponseEntity<AllPositionsResultModel> getAllPositionsByName() {
 
         AllPositionsResultModel result = null;
 
         try
         {
-            result = _positionService.GetAllVesselPositions();
+            result = _positionService.getAllVesselPositions();
         }
         catch (Exception e)
         {
-            return ExceptionToResultModel(e);
+            return exceptionToResultModel(e);
         }
 
         return new ResponseEntity<AllPositionsResultModel>(result, null, HttpStatus.OK);
     }
 
     @PostMapping("/vesselPosition")
-    public ResponseEntity<VesselPositionResultModel> Position(@RequestBody VesselPositionInputModel data)
+    public ResponseEntity<VesselPositionResultModel> position(@RequestBody VesselPositionInputModel data)
     {
         VesselPositionResultModel result = null;
 
         if(data == null) {
-            return NullRequest();
+            return nullRequest();
         }
 
         try
         {
-            result = _positionService.AddVesselPosition(data);
+            result = _positionService.addVesselPosition(data);
         }
         catch (Exception e)
         {
-            return ExceptionToResultModel(e);
+            return exceptionToResultModel(e);
         }
 
         return new ResponseEntity<VesselPositionResultModel>(result, null, HttpStatus.OK);
